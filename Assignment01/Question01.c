@@ -2,13 +2,38 @@
 #include <string.h>
 #include <stdlib.h>
 
+// generating computer choice (random)
+// computer will generate either 0, 1, 2 then return that number after add 1
 int genCompChoice();
+
+/*
+    identify and convert the player's selection
+    if input is R or r for rock the assigned integer was 1
+    if input is P or p for paper the assigned integer was 2
+    if input is S or s for scissor the assigned integer was 3
+    for any other invalid input the assigned integer was 0
+*/
 int sortInput(char input);
+/*
+    show the selected choice in plain text
+    if input is 1 then rock 
+    if input is 2 then paper
+    if input is 3 then scissor
+    for any other invalid input the assigned value is Invalid Selection
+*/
 void showChoice(int input);
+
+/*
+    determine the winner
+    player's and computer's choices will be compared and determine win lose or draw
+    if the difference is 1 the one who have the higher integer value is the winner 
+    otherwise the one who have the less number wins
+*/
 void detWinner(char input, int compChoice);
 
 int main(int argc, char const *argv[])
 {
+    // introduce the game rules 
     printf("=================================================================\n");
     printf("█▀█ █▀█ █▀▀ █▄▀   █▀█ ▄▀█ █▀█ █▀▀ █▀█   █▀ █▀▀ █ █▀ █▀ █▀█ █▀█ █▀\n");    
     printf("█▀▄ █▄█ █▄▄ █░█   █▀▀ █▀█ █▀▀ ██▄ █▀▄   ▄█ █▄▄ █ ▄█ ▄█ █▄█ █▀▄ ▄█\n");
@@ -28,7 +53,11 @@ int main(int argc, char const *argv[])
     printf("-----------------------------------------------------------------\n");
     printf("\t \t \t Game begins\n");
     printf("-----------------------------------------------------------------\n");
+
+    // get user inputs 
     char input;
+
+    // initiate an infinite loop for getting user inputs
     while(1){
         printf("Enter your choice : ");
         scanf(" %c", &input);
