@@ -88,7 +88,10 @@ void showChoice(int input){
     if (input == 1) printf("Rock\n");
     else if (input == 2) printf("Paper\n");
     else if (input == 3) printf("Scissors\n");
-    else printf("Invalid Selection\n");
+    else {
+        printf("Invalid Selection\n");
+        exit(-1);
+    }
 }
 
 void detWinner(char input, int compChoice){
@@ -101,8 +104,4 @@ void detWinner(char input, int compChoice){
     if(((playerChoice-compChoice) == 1) || ((compChoice-playerChoice) == 2))  printf("Player Wins\n");
     else if(((compChoice-playerChoice) == 1) || (playerChoice-compChoice) == 2) printf("Computer Wins\n");
     else if (compChoice == playerChoice) printf("Draw!\n");
-    else {
-        printf("Program End : Player input is invalid");
-        exit(-1);
-    }
 }
